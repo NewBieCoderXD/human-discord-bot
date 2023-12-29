@@ -1,5 +1,5 @@
-import {client} from "./constants";
-import {errorWrapper,objToJSON,processChannelsList,conditionJSONStringify} from "./functions"
+import {client} from "../config/constants";
+import {errorWrapper,objToJSON,processChannelsList,conditionJSONStringify} from "../utils/functions"
 import express, { Express, NextFunction, Request, Response } from "express";
 import {REST, Routes, Client, GatewayIntentBits, GuildChannel, GuildBasedChannel, TextChannel, ChannelType, GuildChannelManager, Collection, Snowflake, ThreadChannel, MessageCreateOptions, FetchMessagesOptions} from "discord.js"
 
