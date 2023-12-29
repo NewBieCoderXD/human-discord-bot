@@ -1,6 +1,6 @@
 import express, { Express, NextFunction, Request, Response } from "express";
-import {app,client,port} from "./constants.ts"
-import apiRouter from "./apiRoute.ts"
+import {app,client,port} from "./constants"
+import apiRouter from "./apiRoute"
 import * as dotenv from "dotenv";
 dotenv.config({path:__dirname+'/.env'})
 

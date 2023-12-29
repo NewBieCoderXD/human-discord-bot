@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import {GuildBasedChannel, ChannelType, Collection, Snowflake} from "discord.js"
 import chalk from "chalk";
-import {prettyJSON} from "./constants.ts"
+import {prettyJSON} from "./constants"
 
 export function IsAsyncFunction(fn: Function){
     const AsyncFunction = (async () => {}).constructor;
