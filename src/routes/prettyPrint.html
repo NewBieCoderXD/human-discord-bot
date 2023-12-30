@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body style="white-space: pre-wrap;">
+        <script>
+            !async function(){
+                let url = window.location.href
+                console.log(url.split("prettyPrint"))
+                let result = await fetch("/api"+url.split("prettyPrint")[1])
+                let resultJSON = await result.json();
+                document.querySelector("body").innerHTML=JSON.stringify(resultJSON,null,4);
+            }()
+        </script>
+    </body>
+</html>

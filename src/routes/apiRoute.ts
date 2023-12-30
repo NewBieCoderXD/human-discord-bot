@@ -30,7 +30,7 @@ apiRouter.get("/getGuilds",errorWrapper((req:Request,res:Response)=>{
 //     }
 // })
 
-// /getMessages/918464200530071553/706033295665790986
+// /getUserData/918464200530071553/706033295665790986
 
 apiRouter.get("/getUserData/:guildId/:userId", errorWrapper(async (req:Request,res:Response)=>{
     let guild = client.guilds.cache.get(req.params.guildId)
@@ -72,5 +72,9 @@ apiRouter.post("/postMessage/:guildId/:channelId/:message", errorWrapper(async (
     let result = await channel.send(req.params.message)
     return res.send(result);
 }));
+
+apiRouter.get("/prettyPrint/(*)",(req:Request,res:Response)=>{
+    return res.sendFile(__dirname+"/prettyPrint.html")
+})
 
 export default apiRouter

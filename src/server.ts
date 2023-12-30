@@ -1,13 +1,15 @@
 import express, { Express, NextFunction, Request, Response } from "express";
-import {app,client,port} from "./config/constants"
+import {client,port} from "./config/constants"
 import apiRouter from "./routes/apiRoute"
 import frontendRouter from "./routes/frontendRouter"
 import * as dotenv from "dotenv";
-dotenv.config({path:__dirname+'/.env'})
+dotenv.config({path:__dirname+'/../.env'})
+
+const app = express();
 
 app.use("/api",apiRouter)
 
-app.use("/",frontendRouter);
+app.use(frontendRouter);
 
 client.on('ready',()=>{
     app.listen(port)

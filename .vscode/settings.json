@@ -1,0 +1,6 @@
+{
+    
+    "code-runner.executorMap": {
+        "typescript": "npm run-script build+run"
+    }
+}
