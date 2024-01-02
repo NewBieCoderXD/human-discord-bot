@@ -20,13 +20,19 @@
     "@types/jquery": "^3.5.29",
     "@types/jqueryui": "^1.12.21",
     "@types/node": "^20.10.5",
+    "@webpack-cli/generators": "^3.0.7",
     "prettier": "^3.1.1",
     "regenerator-runtime": "^0.14.1",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "workbox-webpack-plugin": "^7.0.0"
   },
   "scripts": {
-    "build+run": "ts-node ./src/server.ts"
+    "run": "ts-node ./src/server.ts",
+    "build+run": "npm run build && npm run run",
+    "build": "webpack && tsc -P ./src/client"
   },
   "keywords": [],
   "author": "",
