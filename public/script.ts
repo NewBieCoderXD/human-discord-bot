@@ -1,6 +1,5 @@
-import * as $ from "jquery"
+import $ from "jquery"
 import "jquery-ui"
-
 function getChannelElementId(id:string){
     return "channels_"+id;
 }

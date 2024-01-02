@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "jquery": "./jquery.js",
+    "jquery-ui": "./jquery-ui.js"
+  }
+}
