@@ -2,6 +2,7 @@ import {client} from "../config/constants";
 import {errorWrapper,objToJSON,processChannelsList,conditionJSONStringify} from "../utils/functions"
 import express, { Express, NextFunction, Request, Response } from "express";
 import {REST, Routes, Client, GatewayIntentBits, GuildChannel, GuildBasedChannel, TextChannel, ChannelType, GuildChannelManager, Collection, Snowflake, ThreadChannel, MessageCreateOptions, FetchMessagesOptions} from "discord.js"
+import * as path from "path";
 
 const apiRouter = express.Router();
 
@@ -74,7 +75,7 @@ apiRouter.post("/postMessage/:guildId/:channelId/:message", errorWrapper(async (
 }));
 
 apiRouter.get("/prettyPrint/(*)",(req:Request,res:Response)=>{
-    return res.sendFile(__dirname+"/prettyPrint.html")
+    return res.sendFile(path.join(__dirname,"/../../public/prettyPrint.html"))
 })
 
 export default apiRouter
