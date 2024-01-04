@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import {GuildBasedChannel, ChannelType, Collection, Snowflake} from "discord.js"
+import {GuildBasedChannel, ChannelType, Collection, Snowflake, Message} from "discord.js"
 import chalk from "chalk";
 import {prettyJSON} from "../config/constants"
 
@@ -57,4 +57,9 @@ export function errorWrapper(fn: (req:Request,res:Response) => any){
             res.send(e);
         }
     }
+}
+
+export function processMessage(message: Message){
+    let allowedKeys = ["id","createdTimestamp","author","content","mentions"];
+    return objToJSON(message,allowedKeys)
 }

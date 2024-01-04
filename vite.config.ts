@@ -11,5 +11,5 @@ export default {
         assetFileNames: `[name].[ext]`
       }
     }
-  }
+  },
 }
