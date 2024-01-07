@@ -84,9 +84,35 @@ apiRouter.get("/prettyPrint/(*)",(req:Request,res:Response)=>{
 apiRouter.ws("/websocket/:guildId/:channelId",(webSocket: ws,req:Request)=>{
     // console.log(req.params.guildId,req.params.channelId)
     globalWSCollection.push(req.params.guildId,req.params.channelId,webSocket);
-    console.log(globalWSCollection)
+    // console.log(globalWSCollection)
     webSocket.on("message",(message: string)=>{
-        console.log(message);
+        let messageJSON = JSON.parse(message);
+        let channelId = messageJSON.channelId;
+        // console.log(message)
+        try{
+            let channel = client.channels.cache.get(channelId) as TextChannel;
+            channel.send(messageJSON.content);
+            webSocket.send(JSON.stringify({
+                type: "response",
+                success: true
+            }));
+        }
+        catch(e: unknown){
+            if(e instanceof Error){
+                webSocket.send(JSON.stringify({
+                    type: "response",
+                    success: false,
+                    error: e.stack
+                }));
+                return;
+            }
+            console.error(e)
+            webSocket.send(JSON.stringify({
+                type: "response",
+                success: false,
+                error: e
+            }));
+        }
     })
 })
 

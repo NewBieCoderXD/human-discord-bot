@@ -60,6 +60,6 @@ export function errorWrapper(fn: (req:Request,res:Response) => any){
 }
 
 export function processMessage(message: Message){
-    let allowedKeys = ["id","createdTimestamp","author","content","mentions"];
+    let allowedKeys = ["id","createdTimestamp","author","content","mentions","channelId"];
     return objToJSON(message,allowedKeys)
 }

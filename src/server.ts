@@ -19,6 +19,7 @@ client.on('ready',()=>{
 })
 
 client.on("messageCreate",(message)=>{
+    console.log(message)
     globalWSCollection.get(message.guildId!,message.channelId)?.forEach((webSocket)=>{
         let messageJSON=processMessage(message);
         webSocket.send(JSON.stringify(messageJSON));

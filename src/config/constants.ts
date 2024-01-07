@@ -7,5 +7,6 @@ export const client: Client = new Client({intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMembers
 ]});
 export const prettyJSON: boolean = false;
